@@ -1,0 +1,22 @@
+!!! 5
+html(xmlns = "http://www.w3.org/1999/xhtml", "xml:lang" = "en", lang = "en")
+  head
+      meta("http-equiv" = "X-Frame-Options", content="sameorigin")
+      meta("http-equiv" = "X-UA-Compatible", content = "IE=Edge")
+      meta("http-equiv" = "Content-Type", content = "text/html; charset=utf-8")
+      meta(name = "viewport", content = "width=device-width, initial-scale=1.0")
+      title= "First"
+      block stylesheets
+        link(href="vendor/bootstrap/bootstrap.min.css", rel="stylesheet", type="text/css")
+        link(href="vendor/jquery-ui/jquery-ui.min.css", rel="stylesheet", type="text/css")
+      block bodyscripts
+        script(src="vendor/jquery/jquery.min.js", type="text/javascript")
+
+  body
+      header
+        .logo-container.row
+          .col-lg-12
+            .row
+              .col-lg-5.col-md-6.col-sm-7.logo.clearfix
+                h6 First
+                h6 System

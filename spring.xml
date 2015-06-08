@@ -1,0 +1,32 @@
+<!--<?xml version="1.0" encoding="UTF-8"?>-->
+<!--<beans:beans xmlns:beans="http://www.springframework.org/schema/beans"-->
+             <!--xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
+             <!--xmlns:context="http://www.springframework.org/schema/context"-->
+             <!--xmlns:aop="http://www.springframework.org/schema/aop"-->
+             <!--xsi:schemaLocation="http://www.springframework.org/schema/beans-->
+    <!--http://www.springframework.org/schema/beans/spring-beans.xsd-->
+    <!--http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd-->
+    <!--http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">-->
+
+    <!--&lt;!&ndash;<repositories base-package="repository" />&ndash;&gt;-->
+
+    <!--<context:annotation-config />-->
+    <!--<context:component-scan  base-package="model, service, repository" />-->
+
+    <!--&lt;!&ndash;<beans:bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">&ndash;&gt;-->
+        <!--&lt;!&ndash;<beans:property name="driverClassName" value="com.mysql.jdbc.Driver" />&ndash;&gt;-->
+        <!--&lt;!&ndash;<beans:property name="url" value="jdbc:mysql://localhost:3306/TestDB" />&ndash;&gt;-->
+        <!--&lt;!&ndash;<beans:property name="username" value="root" />&ndash;&gt;-->
+        <!--&lt;!&ndash;<beans:property name="password" value="p@ssw0rd" />&ndash;&gt;-->
+    <!--&lt;!&ndash;</beans:bean>&ndash;&gt;-->
+
+    <!--&lt;!&ndash;<beans:bean id="book" class="model.Book" autowire="constructor">&ndash;&gt;-->
+        <!--&lt;!&ndash;<beans:constructor-arg name="name" value="book1"></beans:constructor-arg>&ndash;&gt;-->
+    <!--&lt;!&ndash;</beans:bean>&ndash;&gt;-->
+
+    <!--&lt;!&ndash;<beans:bean id="author" class="model.Author">&ndash;&gt;-->
+        <!--&lt;!&ndash;<beans:property name="name" value="author"></beans:property>&ndash;&gt;-->
+        <!--&lt;!&ndash;<beans:property name="age" value="30"></beans:property>&ndash;&gt;-->
+    <!--&lt;!&ndash;</beans:bean>&ndash;&gt;-->
+
+<!--</beans:beans>-->
