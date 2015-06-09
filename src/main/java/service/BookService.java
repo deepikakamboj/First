@@ -16,7 +16,9 @@ public class BookService {
     }
 
     public void add(Book book) {
-      repository.save(book);
+        System.out.println("service");
+        System.out.println(book);
+        repository.save(book);
     }
 
 }

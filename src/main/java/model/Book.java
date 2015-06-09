@@ -17,7 +17,6 @@ import javax.persistence.Id;
 
 @Setter
 @Entity
-@Component
 @NoArgsConstructor
 @AllArgsConstructor
 public class Book {
@@ -28,13 +27,6 @@ public class Book {
 
     @Value("BookName")
     private String name;
-
-    private Author author;
-
-    @Autowired
-    public Book(Author author){
-        this.author = author;
-    }
 
     @PostConstruct
     public void postConstruct() {
@@ -49,6 +41,5 @@ public class Book {
     public void sayHello() {
         System.out.println("Hello World!!");
         System.out.println(this.name);
-        System.out.println(this.author.toString());
     }
 }

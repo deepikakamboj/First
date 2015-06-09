@@ -24,6 +24,14 @@
         </fileset>
       </configuration>
     </facet>
+    <facet type="jpa" name="JPA">
+      <configuration>
+        <setting name="validation-enabled" value="true" />
+        <setting name="provider-name" value="" />
+        <datasource-mapping />
+        <deploymentDescriptor name="persistence.xml" url="file://$MODULE_DIR$/src/main/webapp/META-INF/persistence.xml" />
+      </configuration>
+    </facet>
   </component>
   <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_6" inherit-compiler-output="false">
     <output url="file://$MODULE_DIR$/target/classes" />
@@ -33,6 +41,7 @@
       <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/resources" type="java-resource" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
+      <excludeFolder url="file://$MODULE_DIR$/target/test-classes" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
@@ -60,6 +69,8 @@
     <orderEntry type="library" name="Maven: org.aspectj:aspectjrt:1.8.5" level="project" />
     <orderEntry type="library" name="Maven: commons-pool:commons-pool:1.6" level="project" />
     <orderEntry type="library" name="Maven: commons-dbcp:commons-dbcp:1.4" level="project" />
+    <orderEntry type="library" name="Maven: com.mchange:c3p0:0.9.5-pre8" level="project" />
+    <orderEntry type="library" name="Maven: com.mchange:mchange-commons-java:0.2.7" level="project" />
     <orderEntry type="library" name="Maven: org.projectlombok:lombok:1.16.4" level="project" />
     <orderEntry type="library" name="Maven: org.projectlombok:lombok-utils:1.16.4" level="project" />
     <orderEntry type="library" name="Maven: de.neuland-bfi:jade4j:0.4.2" level="project" />
@@ -87,6 +98,7 @@
     <orderEntry type="library" name="Maven: org.javassist:javassist:3.18.1-GA" level="project" />
     <orderEntry type="library" name="Maven: antlr:antlr:2.7.7" level="project" />
     <orderEntry type="library" name="Maven: org.jboss:jandex:1.1.0.Final" level="project" />
+    <orderEntry type="library" name="Maven: org.hibernate:hibernate-entitymanager:4.3.6.Final" level="project" />
     <orderEntry type="library" name="Maven: mysql:mysql-connector-java:5.1.32" level="project" />
   </component>
 </module>

@@ -19,6 +19,7 @@
         <tomcat.port>9090</tomcat.port>
         <tomcat.url>http://localhost:9090/manager</tomcat.url>
         <mysql.connector.version>5.1.32</mysql.connector.version>
+        <c3p0.version>0.9.5-pre8</c3p0.version>
     </properties>
 
     <dependencies>
@@ -114,6 +115,13 @@
             <version>1.4</version>
         </dependency>
 
+        <dependency>
+            <groupId>com.mchange</groupId>
+            <artifactId>c3p0</artifactId>
+            <version>${c3p0.version}</version>
+            <!--<scope>provided</scope>-->
+        </dependency>
+
         <!-- lombok dependencies -->
 
         <dependency>
@@ -145,6 +153,12 @@
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
+            <version>${hibernate.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>
             <version>${hibernate.version}</version>
         </dependency>
 

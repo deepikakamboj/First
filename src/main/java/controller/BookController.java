@@ -30,7 +30,8 @@ public class BookController {
 
     @RequestMapping(method = RequestMethod.POST)
     public ResponseEntity<?> addBook(@RequestBody Book book) {
-       service.add(book);
+        System.out.println(book);
+        service.add(book);
         return new ResponseEntity<Book>(HttpStatus.CREATED);
     }
 }

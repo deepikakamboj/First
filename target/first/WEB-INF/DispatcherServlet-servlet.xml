@@ -2,16 +2,19 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
-       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:tx="http://www.springframework.org/schema/cache"
+       xmlns:jpa="http://www.springframework.org/schema/data/jpa"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd
        http://www.springframework.org/schema/context
        http://www.springframework.org/schema/context/spring-context.xsd
        http://www.springframework.org/schema/mvc
-       http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+       http://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache.xsd http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
 
-    <context:component-scan base-package="controller, service"/>
+    <context:component-scan base-package="controller, service, repository"/>
     <mvc:annotation-driven />
+
+    <!-- beans for resolving the views -->
 
     <bean id="templateLoader" class="de.neuland.jade4j.spring.template.SpringTemplateLoader">
         <property name="basePath" value="/WEB-INF/pages/"/>
@@ -28,5 +31,59 @@
         <property name="configuration" ref="jadeConfiguration"/>
         <property name="renderExceptions" value="true"/>
     </bean>
+
+    <!-- beans for database integration using hibernate -->
+
+    <!--<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">-->
+        <!--<property name="driverClassName" value="com.mysql.jdbc.Driver" />-->
+        <!--<property name="url" value="jdbc:mysql://localhost/first" />-->
+        <!--<property name="username" value="root" />-->
+        <!--<property name="password" value="p@ssw0rd" />-->
+        <!--<property name="validationQuery" value="SELECT 1" />-->
+    <!--</bean>-->
+
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+        <property name="driverClass" value="com.mysql.jdbc.Driver"/>
+        <property name="jdbcUrl" value="jdbc:mysql://localhost/first"/>
+        <property name="user" value="root"/>
+        <property name="password" value="p@ssw0rd"/>
+    </bean>
+
+    <!--<bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">-->
+        <!--<property name="dataSource" ref="dataSource" />-->
+        <!--<property name="packagesToScan" value="model" />-->
+        <!--<property name="hibernateProperties">-->
+            <!--<props>-->
+                <!--<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>-->
+                <!--<prop key="hibernate.show_sql">true</prop>-->
+                <!--&lt;!&ndash; value create to create tables each time server is started. update to create only new tables &ndash;&gt;-->
+                <!--<prop key="hibernate.hbm2ddl.auto">update</prop>-->
+            <!--</props>-->
+        <!--</property>-->
+    <!--</bean>-->
+
+    <bean id="jpaVendorAdapter" class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+        <property name="database" value="MYSQL"/>
+        <property name="databasePlatform" value="org.hibernate.dialect.MySQL5Dialect"/>
+        <property name="showSql" value="true"/>
+    </bean>
+
+    <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="jpaVendorAdapter" ref="jpaVendorAdapter"/>
+        <property name="persistenceUnitName" value="first"/>
+    </bean>
+
+    <!--<bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">-->
+        <!--<property name="sessionFactory" ref="sessionFactory" />-->
+    <!--</bean>-->
+
+    <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+        <property name="entityManagerFactory" ref="entityManagerFactory"/>
+    </bean>
+
+    <tx:annotation-driven/>
+
+    <jpa:repositories base-package="repository" />
 
 </beans>
